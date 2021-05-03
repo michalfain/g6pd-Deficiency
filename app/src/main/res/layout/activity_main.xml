@@ -16,22 +16,16 @@
         app:layout_constraintBottom_toTopOf="@+id/list_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"-->
 
-        <androidx.appcompat.widget.Toolbar
+        <!--androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" /-->
 
-    </com.google.android.material.appbar.AppBarLayout-->
-
-    <EditText
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="type here" />
+    <!--/com.google.android.material.appbar.AppBarLayout-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item"
