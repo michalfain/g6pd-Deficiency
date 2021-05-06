@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecycleAdapter.ViewHolder holder, final int position) {
         holder.tv.setText(data.get(position).name);
+        holder.tvLabel.setText(data.get(position).company);
         holder.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,9 +90,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tv;
+        ImageView ivIcon;
+        TextView tvLabel;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv = itemView.findViewById(R.id.product);
+            ivIcon = itemView.findViewById(R.id.icon);
+            tvLabel = itemView.findViewById(R.id.label);
         }
     }
 }

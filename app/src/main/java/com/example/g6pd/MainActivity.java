@@ -24,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
         items.add(new Items("עוגית חלבון צימוקים", "בייק סיטי",  "food"));
         items.add(new Items("עוגית חלבון חמאת בוטנים", "בייק סיטי",  "food"));
         items.add(new Items("עוגית חלבון הוואית", "בייק סיטי",  "food"));
