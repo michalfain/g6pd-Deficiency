@@ -42,6 +42,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     public void onBindViewHolder(@NonNull RecycleAdapter.ViewHolder holder, final int position) {
         holder.tv.setText(data.get(position).name);
         holder.tvLabel.setText(data.get(position).company);
+        if(data.get(position).type == "food"){
+            holder.ivIcon.setImageResource(R.drawable.food);
+        }else {
+            holder.ivIcon.setImageResource(R.drawable.pharm);
+        }
         holder.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
