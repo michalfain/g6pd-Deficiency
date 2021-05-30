@@ -3,7 +3,6 @@ package com.example.g6pd;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
        inflater.inflate(R.menu.menu_main, menu);
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) search.getActionView();
+        searchView.setQueryHint("חיפוש");
         searchView.setOnQueryTextListener
                 (new SearchView.OnQueryTextListener() {
             @Override
