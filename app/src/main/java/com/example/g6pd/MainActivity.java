@@ -1,5 +1,6 @@
 package com.example.g6pd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Items("עוגית חלבון חמאת בוטנים", "בייק סיטי",  "food"));
         items.add(new Items("עוגית חלבון הוואית", "בייק סיטי",  "food"));
         items.add(new Items("כוסמת", "שוקוחה",  "food"));
+        items.add(new Items("נקניקיות ביונד מיט", "דיפלומט",  "food"));
         items.add(new Items("עדשים  ירוקות", "סולמני",  "food"));
         items.add(new Items("אפונה ירוקה", "סולמני",  "food"));
         items.add(new Items("אורז שירזין", "סולמני",  "food"));
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Items("בורגול עבה", "ציפוריי",  "food"));
         items.add(new Items("תחליף שמנת 31%", "Flora",  "food"));
         items.add(new Items("פול", " ",  "food"));
+        items.add(new Items("סילברול קרם", " ",  "pharm"));
 
         items.add(new Items("נפטלין", " ",  "pharm"));
         items.add(new Items("דפסון", " ",  "pharm"));
@@ -87,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Toast.makeText(this, "I am settings", Toast.LENGTH_LONG).show();
                 break;
+            case R.id.contact_us:
+                Intent intent = new Intent(this, ContactUs.class);
+                startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
