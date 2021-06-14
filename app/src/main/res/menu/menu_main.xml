@@ -8,10 +8,12 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item android:id="@+id/search"
-        android:title="Search"
+        android:title="חיפוש"
         android:icon="@drawable/search"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
     <item android:id="@+id/contact_us"
-        android:title="Contact Us"/>
+        android:icon="@drawable/email"
+        app:showAsAction="always"
+        android:title="יצירת קשר"/>
 </menu>
