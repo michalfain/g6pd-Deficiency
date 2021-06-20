@@ -46,12 +46,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
         }else {
             holder.ivIcon.setImageResource(R.drawable.pharm);
         }
-        holder.tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Clicked on " + data.get(position).name, Toast.LENGTH_SHORT).show();
-            }
-        });
+        holder.tv.setOnClickListener(v ->
+                Toast.makeText(context, "Clicked on " + data.get(position).name, Toast.LENGTH_SHORT).show());
 
     }
 
