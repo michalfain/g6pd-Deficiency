@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="40dp"
     tools:context=".ContactUs">
@@ -14,13 +13,15 @@
         android:layout_gravity="center"
         android:textSize="26dp"
         android:layout_margin="10dp"
-        android:text="יצירת קשר"/>
+        android:textColor="@color/colorPrimaryDark"
+        android:text="צרו קשר"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_name"
         android:hint="שם"
+        android:textColor="@color/colorAccent"
         android:layout_margin="10dp"
         android:background="@drawable/round_corners"
         android:padding="10dp"/>
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/et_email"
         android:hint="אימייל"
+        android:textColor="@color/colorAccent"
         android:layout_margin="10dp"
         android:background="@drawable/round_corners"
         android:padding="10dp"/>
@@ -37,8 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_message"
-        android:lines="10"
+        android:lines="7"
         android:hint="הודעה"
+        android:textColor="@color/colorAccent"
         android:gravity="top"
         android:layout_margin="10dp"
         android:background="@drawable/round_corners"
@@ -48,8 +51,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@drawable/round_corners"
+        android:background="@drawable/button_color"
         android:id="@+id/btn_submit"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
         android:text="שליחה"/>
 
 </LinearLayout>

@@ -58,27 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-//        items.add(new Items("בורגול עבה", "ציפוריי",  "food"));
-//        items.add(new Items("תחליף שמנת 31%", "Flora",  "food"));
-//        items.add(new Items("פול", " ",  "food"));
-//        items.add(new Items("סילברול קרם", " ",  "pharm"));
-
-//        items.add(new Items("דפסון", " ",  "pharm"));
-//        items.add(new Items("אבלוסולפון", " ",  "pharm"));
-//        items.add(new Items("מתילון בלו", " ",  "pharm"));
-//        items.add(new Items("ניטרופורנטוין", " ",  "pharm"));
-//        items.add(new Items("מקרודנטין", " ",  "pharm"));
-//        items.add(new Items("יובאמין", " ",  "pharm"));
-//        items.add(new Items("פנזופירידן", " ",  "pharm"));
-//        items.add(new Items("סדורל", " ",  "pharm"));
-//        items.add(new Items("פרימקווין", " ",  "pharm"));
-//        items.add(new Items("רסבוריקאז", " ",  "pharm"));
-//        items.add(new Items("טולידין בלו", " ",  "pharm"));
-//        items.add(new Items("סולפרטים", " ",  "pharm"));
-//        items.add(new Items("דיספטיל", " ",  "pharm"));
-//        items.add(new Items("רספרים", " ",  "pharm"));
-//        items.add(new Items("ספרטין", " ",  "pharm"));
         recyclerView = findViewById(R.id.list_item);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recycleAdapter = new RecycleAdapter(items, this);

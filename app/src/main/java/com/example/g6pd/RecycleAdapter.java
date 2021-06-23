@@ -1,6 +1,7 @@
 package com.example.g6pd;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +85,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
             data.clear();
             data.addAll((Collection<? extends Items>) results.values);
             notifyDataSetChanged();
+            Log.d("SEARCH:", results.values.toString());
         }
     };
 
