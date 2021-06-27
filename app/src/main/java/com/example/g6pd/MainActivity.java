@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,11 +12,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import androidx.appcompat.widget.SearchView;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -28,11 +30,12 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    RecycleAdapter recycleAdapter;
+//    RecycleAdapter recycleAdapter;
         List<Items> items = new ArrayList<Items>();
         DatabaseReference reference;
         Map<String, Object> mapList = new HashMap<>();
-
+        AdapterClass adapterClass;
+//        SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         Items i = new Items(name, company, type, "no photo");
                         items.add(i);
                 }
-                recycleAdapter.notifyDataSetChanged();
+                adapterClass.notifyDataSetChanged();
             }
 
             @Override
@@ -59,33 +62,55 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView = findViewById(R.id.list_item);
+        adapterClass = new AdapterClass(items);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recycleAdapter = new RecycleAdapter(items, this);
-        recyclerView.setAdapter(recycleAdapter);
+        recyclerView.setAdapter(adapterClass);
+//        recycleAdapter = new RecycleAdapter(items, this);
+//        recyclerView.setAdapter(recycleAdapter);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       MenuInflater inflater = getMenuInflater();
-       inflater.inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) search.getActionView();
         searchView.setQueryHint("חיפוש");
-        searchView.setOnQueryTextListener
-                (new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+//        if (searchView != null) {
+            searchView.setOnQueryTextListener
+                    (new SearchView.OnQueryTextListener() {
+                        @Override
+                        public boolean onQueryTextSubmit(String query) {
+                            return false;
+                        }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                recycleAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+                        @Override
+                        public boolean onQueryTextChange(String newText) {
+                            searchList(newText);
+                            return true;
+//                recycleAdapter.getFilter().filter(newText);
+//                            return false;
+                        }
+                    });
+//        }
         return true;
-    }
+        //return super.onCreateOptionsMenu(menu);
+        }
+        private void searchList(String query) {
+            if (query != null) {
+                List<Items> listItems = new ArrayList();
+                for (Items object : items) {
+                    if (object.name.toLowerCase().contains(query.toLowerCase())) {
+                        listItems.add(object);
+                    }
+                }
+                AdapterClass adapter = new AdapterClass(listItems);
+                recyclerView.setAdapter(adapter);
+            }
+            else {
+                recyclerView.setAdapter(adapterClass);
+            }
+        }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
