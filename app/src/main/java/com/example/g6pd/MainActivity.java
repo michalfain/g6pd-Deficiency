@@ -19,7 +19,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -29,13 +28,11 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-//    RecycleAdapter recycleAdapter;
+        RecyclerView recyclerView;
         List<Items> items = new ArrayList<Items>();
         DatabaseReference reference;
         Map<String, Object> mapList = new HashMap<>();
         AdapterClass adapterClass;
-//        SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,15 +42,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 items.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
-                        String name = ((Map)(mapList.get(dataSnapshot.getKey()))).get("name").toString();
-                        String company = ((Map)(mapList.get(dataSnapshot.getKey()))).get("company").toString();
-                        String type = ((Map)(mapList.get(dataSnapshot.getKey()))).get("type").toString();
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
+                        String name = ((Map) (mapList.get(dataSnapshot.getKey()))).get("name").toString();
+                        String company = ((Map) (mapList.get(dataSnapshot.getKey()))).get("company").toString();
+                        String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get("type").toString();
                         Items i = new Items(name, company, type, "no photo");
                         items.add(i);
-                }
-                adapterClass.notifyDataSetChanged();
+                    }
+                    adapterClass.notifyDataSetChanged();
             }
 
             @Override
@@ -65,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         adapterClass = new AdapterClass(items);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterClass);
-//        recycleAdapter = new RecycleAdapter(items, this);
-//        recyclerView.setAdapter(recycleAdapter);
     }
 
     @Override
@@ -76,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) search.getActionView();
         searchView.setQueryHint("חיפוש");
-//        if (searchView != null) {
             searchView.setOnQueryTextListener
                     (new SearchView.OnQueryTextListener() {
                         @Override
@@ -88,13 +82,9 @@ public class MainActivity extends AppCompatActivity {
                         public boolean onQueryTextChange(String newText) {
                             searchList(newText);
                             return true;
-//                recycleAdapter.getFilter().filter(newText);
-//                            return false;
                         }
                     });
-//        }
         return true;
-        //return super.onCreateOptionsMenu(menu);
         }
         private void searchList(String query) {
             if (query != null) {
