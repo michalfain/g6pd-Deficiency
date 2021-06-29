@@ -7,9 +7,16 @@
     android:padding="10dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/colorPrimaryDark">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="10dp"
+        android:layout_margin="2dp"
         app:contentPadding="5dp"
         app:cardCornerRadius="15dp">
         <LinearLayout
@@ -54,6 +61,7 @@
             </LinearLayout>
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 

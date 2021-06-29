@@ -1,5 +1,6 @@
 package com.example.g6pd;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference reference;
         Map<String, Object> mapList = new HashMap<>();
         AdapterClass adapterClass;
+        Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView = findViewById(R.id.list_item);
-        adapterClass = new AdapterClass(items);
+        adapterClass = new AdapterClass(items, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterClass);
     }
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         listItems.add(object);
                     }
                 }
-                AdapterClass adapter = new AdapterClass(listItems);
+                AdapterClass adapter = new AdapterClass(listItems, context);
                 recyclerView.setAdapter(adapter);
             }
             else {

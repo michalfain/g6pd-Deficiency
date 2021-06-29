@@ -1,5 +1,7 @@
 package com.example.g6pd;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder>{
     List<Items> itemsList;
-    public AdapterClass(List<Items> itemsList){
+    Context context;
+    public AdapterClass(List<Items> itemsList, Context context){
+        this.context = context;
         this.itemsList = itemsList;
     }
 
@@ -34,6 +38,15 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         }else {
             holder.ivIcon.setImageResource(R.drawable.pharm);
         }
+        holder.tv.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ItemScreen.class);
+            intent.putExtra("name", itemsList.get(position).name);
+            intent.putExtra("company", itemsList.get(position).company);
+            intent.putExtra("photo", itemsList.get(position).photo);
+            intent.putExtra("type", itemsList.get(position).type);
+            context.startActivity(intent);
+
+        });
     }
 
     @Override

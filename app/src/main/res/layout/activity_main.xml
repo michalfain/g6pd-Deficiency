@@ -7,11 +7,17 @@
     android:background="@drawable/beans"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@android:color/white"
+        >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item"
         android:layout_width="376dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/search_bar" />
-
+    </LinearLayout>
 </LinearLayout>
