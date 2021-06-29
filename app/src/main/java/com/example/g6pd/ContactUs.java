@@ -34,10 +34,10 @@ public class ContactUs extends AppCompatActivity {
                 if(checkName() && checkEmail() &&
                         !etMessage.getText().toString().isEmpty()) {
                     sendMail();
-                    Toast.makeText(ContactUs.this, "Thank you for your feedback!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ContactUs.this, "תודה רבה ל המשוב!", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(ContactUs.this, "Please enter all fields!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ContactUs.this, "נא למלא את כל השדות!", Toast.LENGTH_LONG).show();
                 }
             }
         });
