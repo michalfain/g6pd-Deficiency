@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/square_corners"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/question_layout"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/info_icon"
+            android:src="@drawable/add"
+            android:clickable="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_question"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="right"
+            android:textSize="25dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="מידע"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer_layout"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_info"
+        android:gravity="right"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:text="מידע"/>
+</LinearLayout>
+</LinearLayout>

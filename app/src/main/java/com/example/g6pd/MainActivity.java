@@ -107,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_settings:
-                Toast.makeText(this, "I am settings", Toast.LENGTH_LONG).show();
-                break;
             case R.id.contact_us:
                 Intent intent = new Intent(this, ContactUs.class);
                 startActivity(intent);
+            case R.id.info:
+                Intent intent2 = new Intent(this, InfoScreen.class);
+                startActivity(intent2);
         }
         return super.onOptionsItemSelected(item);
     }
