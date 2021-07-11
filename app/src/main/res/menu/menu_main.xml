@@ -16,4 +16,8 @@
         android:icon="@drawable/info"
         app:showAsAction="ifRoom"
         android:title="מידע כללי"/>
+    <item android:id="@+id/question"
+        android:icon="@drawable/star"
+        app:showAsAction="ifRoom"
+        android:title="שאלות נפוצות"/>
 </menu>

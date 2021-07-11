@@ -110,9 +110,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.contact_us:
                 Intent intent = new Intent(this, ContactUs.class);
                 startActivity(intent);
+                break;
             case R.id.info:
                 Intent intent2 = new Intent(this, InfoScreen.class);
                 startActivity(intent2);
+                break;
+            case  R.id.question:
+                Intent intent3 = new Intent(this, QuestionScreen.class);
+                startActivity(intent3);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

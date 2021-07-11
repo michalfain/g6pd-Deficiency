@@ -35,7 +35,7 @@ public class InfoAdapter  extends RecyclerView.Adapter<InfoAdapter.MyViewHolder>
         holder.tvInfoQuestion.setText(questionInfoList.get(position).question);
         holder.tvInfoAnswer.setText(questionInfoList.get(position).answer);
         holder.llAnswer.setVisibility(View.GONE);
-        holder.llQuestion.setOnClickListener(v -> {
+        holder.ivInfoIcon.setOnClickListener(v -> {
             if (isPressed == false){
                 holder.ivInfoIcon.setImageResource(R.drawable.maximize);
                 holder.llAnswer.setVisibility(View.VISIBLE);
