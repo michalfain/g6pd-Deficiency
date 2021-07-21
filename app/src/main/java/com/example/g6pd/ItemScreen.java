@@ -22,6 +22,7 @@ public class ItemScreen extends AppCompatActivity {
         Intent intent = getIntent();
         tvName.setText(intent.getStringExtra("name"));
         tvCompany.setText(intent.getStringExtra("company"));
+        tvDescription.setText(intent.getStringExtra("addInfo"));
         if(intent.getStringExtra("type") == "food"){
             ivPhoto.setImageResource(R.drawable.food);
         }else {

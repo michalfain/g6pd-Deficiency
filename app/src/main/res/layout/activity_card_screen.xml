@@ -88,7 +88,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/info"
+            android:id="@+id/questions"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_row="1"
@@ -118,7 +118,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/questions"
+            android:id="@+id/info"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_row="1"
