@@ -35,15 +35,13 @@ public class InfoAdapter  extends RecyclerView.Adapter<InfoAdapter.MyViewHolder>
         holder.tvInfoQuestion.setText(questionInfoList.get(position).question);
         holder.tvInfoAnswer.setText(questionInfoList.get(position).answer);
         holder.llAnswer.setVisibility(View.GONE);
-        holder.ivInfoIcon.setOnClickListener(v -> {
+        holder.llQuestion.setOnClickListener(v -> {
             if (isPressed == false){
-                holder.ivInfoIcon.setImageResource(R.drawable.maximize);
                 holder.llAnswer.setVisibility(View.VISIBLE);
                 isPressed = true;
 
             }else {
                 holder.llAnswer.setVisibility(View.GONE);
-                holder.ivInfoIcon.setImageResource(R.drawable.add);
                 isPressed = false;
             }
         });
@@ -56,13 +54,11 @@ public class InfoAdapter  extends RecyclerView.Adapter<InfoAdapter.MyViewHolder>
 
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvInfoQuestion, tvInfoAnswer;
-        ImageView ivInfoIcon;
         LinearLayout llAnswer, llQuestion;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvInfoQuestion = itemView.findViewById(R.id.info_question);
-            ivInfoIcon = itemView.findViewById(R.id.info_icon);
             tvInfoAnswer = itemView.findViewById(R.id.info_info);
             llAnswer = itemView.findViewById(R.id.answer_layout);
             llQuestion = itemView.findViewById(R.id.question_layout);
