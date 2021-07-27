@@ -42,7 +42,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     public void onBindViewHolder(@NonNull RecycleAdapter.ViewHolder holder, final int position) {
         holder.tv.setText(data.get(position).name);
         holder.tvLabel.setText(data.get(position).company);
-        if(data.get(position).type == "food"){
+        if(data.get(position).type == Constants.food){
             holder.ivIcon.setImageResource(R.drawable.food);
         }else {
             holder.ivIcon.setImageResource(R.drawable.pharm);

@@ -31,16 +31,16 @@ public class QuestionScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_question_screen);
-        reference = FirebaseDatabase.getInstance().getReference("Alleries").child("commonQA");
+        reference = FirebaseDatabase.getInstance().getReference(Constants.alleries).child(Constants.commonQA);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 questionList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
-                    String question = ((Map) (mapList.get(dataSnapshot.getKey()))).get("question").toString();
-                    String answer = ((Map) (mapList.get(dataSnapshot.getKey()))).get("answer").toString();
-                    String id = ((Map) (mapList.get(dataSnapshot.getKey()))).get("id").toString();
+                    String question = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.question).toString();
+                    String answer = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.answer).toString();
+                    String id = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.id).toString();
                     QuestionInfo q = new QuestionInfo(Integer.parseInt(id), question, answer);
                     questionList.add(q);
                 }

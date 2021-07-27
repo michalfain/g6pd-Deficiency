@@ -46,20 +46,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("רשימת מוצרים");
+        getSupportActionBar().setTitle(Constants.itemListTitle);
         setContentView(R.layout.activity_main);
-        reference = FirebaseDatabase.getInstance().getReference("Alleries").child("g6pd");
+        reference = FirebaseDatabase.getInstance().getReference(Constants.alleries).child(Constants.g6pd);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 items.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
-                        String name = ((Map) (mapList.get(dataSnapshot.getKey()))).get("name").toString();
-                        String addInfo = ((Map) (mapList.get(dataSnapshot.getKey()))).get("addInfo").toString();
-                        String company = ((Map) (mapList.get(dataSnapshot.getKey()))).get("company").toString();
-                        String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get("type").toString();
-                        items.add(new Items(name, addInfo, company, type, "no photo"));
+                        String name = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.name).toString();
+                        String addInfo = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.addInfo).toString();
+                        String company = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.company).toString();
+                        String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.type).toString();
+                        items.add(new Items(name, addInfo, company, type, Constants.noPhoto));
 
 //                        if(i.type.equals("food")){
 //                            foodList.add(i);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
         MenuItem search = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) search.getActionView();
-        searchView.setQueryHint("חיפוש");
+        searchView.setQueryHint(Constants.search);
             searchView.setOnQueryTextListener
                     (new SearchView.OnQueryTextListener() {
                         @Override

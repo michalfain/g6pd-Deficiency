@@ -21,10 +21,10 @@ public class ItemScreen extends AppCompatActivity {
         tvDescription = findViewById(R.id.item_description);
         ivPhoto = findViewById(R.id.item_photo);
         Intent intent = getIntent();
-        tvName.setText(intent.getStringExtra("name"));
-        tvCompany.setText(intent.getStringExtra("company"));
-        tvDescription.setText(intent.getStringExtra("addInfo"));
-        if(intent.getStringExtra("type") == "food"){
+        tvName.setText(intent.getStringExtra(Constants.name));
+        tvCompany.setText(intent.getStringExtra(Constants.company));
+        tvDescription.setText(intent.getStringExtra(Constants.addInfo));
+        if(intent.getStringExtra(Constants.type) == Constants.food){
             ivPhoto.setImageResource(R.drawable.food);
         }else {
             ivPhoto.setImageResource(R.drawable.pharm);

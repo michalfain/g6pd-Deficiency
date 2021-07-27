@@ -33,18 +33,18 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tv.setText(itemsList.get(position).name);
         holder.tvLabel.setText(itemsList.get(position).company);
-        if(itemsList.get(position).type.equals("food")){
+        if(itemsList.get(position).type.equals(Constants.food)){
             holder.ivIcon.setImageResource(R.drawable.food);
         }else {
             holder.ivIcon.setImageResource(R.drawable.pharm);
         }
         holder.tv.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemScreen.class);
-            intent.putExtra("name", itemsList.get(position).name);
-            intent.putExtra("company", itemsList.get(position).company);
-            intent.putExtra("photo", itemsList.get(position).photo);
-            intent.putExtra("type", itemsList.get(position).type);
-            intent.putExtra("addInfo", itemsList.get(position).addInfo);
+            intent.putExtra(Constants.name, itemsList.get(position).name);
+            intent.putExtra(Constants.company, itemsList.get(position).company);
+            intent.putExtra(Constants.photo, itemsList.get(position).photo);
+            intent.putExtra(Constants.type, itemsList.get(position).type);
+            intent.putExtra(Constants.addInfo, itemsList.get(position).addInfo);
             context.startActivity(intent);
 
         });

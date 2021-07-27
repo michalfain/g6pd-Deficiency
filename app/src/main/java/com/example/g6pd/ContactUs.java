@@ -15,9 +15,7 @@ public class ContactUs extends AppCompatActivity {
 
     EditText etName, etEmail, etMessage;
     Button btnSubmit;
-    String email = "michelle.fain@gmail.com" ;
-    static final String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+↵\n" +
-            ")*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +27,20 @@ public class ContactUs extends AppCompatActivity {
         etMessage = findViewById(R.id.et_message);
         btnSubmit = findViewById(R.id.btn_submit);
 
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkName() && checkEmail() &&
-                        !etMessage.getText().toString().isEmpty()) {
-                    sendMail();
-                    Toast.makeText(ContactUs.this, "תודה רבה ל המשוב!", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(ContactUs.this, "נא למלא את כל השדות!", Toast.LENGTH_LONG).show();
-                }
+        btnSubmit.setOnClickListener(v -> {
+            if(checkName() && checkEmail() &&
+                    !etMessage.getText().toString().isEmpty()) {
+                sendMail();
+                Toast.makeText(ContactUs.this, Constants.thankYouForFeedback, Toast.LENGTH_LONG).show();
+            }
+            else {
+                Toast.makeText(ContactUs.this, Constants.pleaseFillAllFields, Toast.LENGTH_LONG).show();
             }
         });
     }
     void sendMail(){
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{Constants.michalEmail});
         intent.putExtra(Intent.EXTRA_SUBJECT, etName.getText().toString().trim());
         intent.putExtra(Intent.EXTRA_TEXT, etMessage.getText().toString().trim());
         intent.setType("message/rfc822");
@@ -65,7 +60,7 @@ public class ContactUs extends AppCompatActivity {
     }
     public boolean checkEmail(){
         boolean isChecked;
-        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile(Constants.regex);
         Matcher matcher = pattern.matcher(etEmail.getText().toString());
         if (matcher.matches()){
             isChecked = false;
