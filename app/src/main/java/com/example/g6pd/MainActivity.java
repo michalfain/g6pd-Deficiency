@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("רשימת מוצרים");
         setContentView(R.layout.activity_main);
         reference = FirebaseDatabase.getInstance().getReference("Alleries").child("g6pd");
         reference.addValueEventListener(new ValueEventListener() {
@@ -58,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         String addInfo = ((Map) (mapList.get(dataSnapshot.getKey()))).get("addInfo").toString();
                         String company = ((Map) (mapList.get(dataSnapshot.getKey()))).get("company").toString();
                         String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get("type").toString();
-                        Items i = new Items(name, addInfo, company, type, "no photo");
-                        items.add(i);
-                        listAdapterClass.notifyDataSetChanged();
+                        items.add(new Items(name, addInfo, company, type, "no photo"));
 
 //                        if(i.type.equals("food")){
 //                            foodList.add(i);
@@ -71,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //                            pharmAdapterClass.notifyDataSetChanged();
 //                        }
                     }
+                listAdapterClass.notifyDataSetChanged();
             }
 
             @Override
@@ -120,16 +120,17 @@ public class MainActivity extends AppCompatActivity {
                 for (Items object : items) {
                     if (object.name.toLowerCase().contains(query.toLowerCase())) {
                         listItems.add(object);
-                        pharmRecyclerView.setVisibility(View.INVISIBLE);
+//                        pharmRecyclerView.setVisibility(View.INVISIBLE);
                     }
                 }
                 AdapterClass adapter = new AdapterClass(listItems, context);
-                foodRecyclerView.setAdapter(adapter);
+                listRecyclerView.setAdapter(adapter);
 
             }
             else {
-                foodRecyclerView.setAdapter(foodAdapterClass);
-                pharmRecyclerView.setVisibility(View.VISIBLE);
+                listRecyclerView.setAdapter(listAdapterClass);
+//                foodRecyclerView.setAdapter(foodAdapterClass);
+//                pharmRecyclerView.setVisibility(View.VISIBLE);
             }
         }
 

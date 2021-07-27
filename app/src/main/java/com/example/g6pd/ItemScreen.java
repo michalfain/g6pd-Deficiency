@@ -14,6 +14,7 @@ public class ItemScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_item_screen);
         tvName = findViewById(R.id.item_name);
         tvCompany = findViewById(R.id.item_company);

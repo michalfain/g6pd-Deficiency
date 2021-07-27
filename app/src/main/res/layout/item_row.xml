@@ -13,7 +13,7 @@
         android:backgroundTint="@color/colorPrimaryDark">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
         android:layout_margin="2dp"
@@ -42,7 +42,7 @@
                 <TextView
                     android:id="@+id/product"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="January"
                     android:textColor="@color/colorPrimaryDark"
@@ -52,7 +52,7 @@
                 <TextView
                     android:id="@+id/label"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text="Label"
                     android:textColor="@color/colorPrimary"

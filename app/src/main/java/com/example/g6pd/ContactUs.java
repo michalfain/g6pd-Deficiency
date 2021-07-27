@@ -22,6 +22,7 @@ public class ContactUs extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_contact_us);
         etName = findViewById(R.id.et_name);
         etEmail = findViewById(R.id.et_email);
