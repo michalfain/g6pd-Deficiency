@@ -10,7 +10,7 @@ import android.view.View;
 
 public class CardScreen extends AppCompatActivity {
     Context context;
-    CardView cvMain, cvContact, cvInfo, cvQuestions;
+    CardView cvMain, cvContact, cvInfo, cvQuestions, cvAboutUs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,13 @@ public class CardScreen extends AppCompatActivity {
         cvContact = findViewById(R.id.contact);
         cvInfo = findViewById(R.id.info);
         cvQuestions = findViewById(R.id.questions);
+        cvAboutUs = findViewById(R.id.about_us);
+
         cvMain.setOnClickListener(v -> goMain());
         cvContact.setOnClickListener(v -> goContact());
         cvInfo.setOnClickListener(v -> goInfo());
         cvQuestions.setOnClickListener(v -> goQuestion());
+        cvAboutUs.setOnClickListener(v -> goAboutUs());
     }
     public void goMain(){
         Intent intent = new Intent(context, MainActivity.class);
@@ -41,6 +44,10 @@ public class CardScreen extends AppCompatActivity {
     }
     public void goQuestion(){
         Intent intent = new Intent(context, QuestionScreen.class);
+        startActivity(intent);
+    }
+    public void goAboutUs(){
+        Intent intent = new Intent(context, AboutUs.class);
         startActivity(intent);
     }
 }

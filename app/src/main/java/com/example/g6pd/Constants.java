@@ -1,6 +1,7 @@
 package com.example.g6pd;
 
 public class Constants {
+
 public static String name = "name";
 public static String company = "company";
 public static String photo = "photo";
