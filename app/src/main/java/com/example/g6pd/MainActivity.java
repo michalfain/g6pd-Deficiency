@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                         String addInfo = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.addInfo).toString();
                         String company = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.company).toString();
                         String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.type).toString();
-                        items.add(new Items(name, addInfo, company, type, Constants.noPhoto));
+                        String photo = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.photoUrl).toString();
+                        items.add(new Items(name, addInfo, company, type, photo));
 
 //                        if(i.type.equals("food")){
 //                            foodList.add(i);

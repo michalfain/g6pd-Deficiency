@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -33,10 +35,12 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tv.setText(itemsList.get(position).name);
         holder.tvLabel.setText(itemsList.get(position).company);
-        if(itemsList.get(position).type.equals(Constants.food)){
+        if(itemsList.get(position).type.equals(Constants.food) && itemsList.get(position).photo.equals("none")){
             holder.ivIcon.setImageResource(R.drawable.food);
-        }else {
+        }else if(itemsList.get(position).photo.equals("noPhotoUrl")){
             holder.ivIcon.setImageResource(R.drawable.pharm);
+        } else {
+            Glide.with(context).load(itemsList.get(position).photo).into(holder.ivIcon);
         }
         holder.tv.setOnClickListener(v -> {
             Intent intent = new Intent(context, ItemScreen.class);
@@ -47,6 +51,11 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             intent.putExtra(Constants.addInfo, itemsList.get(position).addInfo);
             context.startActivity(intent);
 
+        });
+        holder.ivIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ImageScreen.class);
+            intent.putExtra(Constants.photoUrl, itemsList.get(position).photo);
+            context.startActivity(intent);
         });
     }
 
