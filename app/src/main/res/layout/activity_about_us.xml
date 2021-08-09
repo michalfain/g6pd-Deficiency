@@ -72,15 +72,15 @@
                 android:layout_margin="10dp"
                 android:layout_gravity="right"
                 />
-        <!--TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rachel7386@gmail.com"
+            android:text="g6pdteam@gmail.com"
             android:textSize="25sp"
             android:id="@+id/rinat_email"
             android:layout_margin="10dp"
             android:gravity="bottom"
-            /-->
+            />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="הצטרפו אלינו למה המאבק"
+                android:text="הצטרפו אלינו למטה המאבק"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
