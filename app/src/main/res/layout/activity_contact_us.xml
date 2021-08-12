@@ -33,7 +33,7 @@
         android:layout_gravity="center"
         android:textSize="15dp"
         android:layout_margin="10dp"
-        android:text="עזרו לנו להתפתח- שילחו לנו תמונות של מוצרים, טעויות, מוצרים חדשים שאסורים ולא נמצאים כאן"/>
+        android:text="עזרו לנו להתפתח שילחו לנו תמונות של מוצרים, טעויות, מוצרים חדשים שאסורים ולא נמצאים כאן"/>
 
     <EditText
         android:layout_width="match_parent"

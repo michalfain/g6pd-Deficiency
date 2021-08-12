@@ -46,7 +46,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             Intent intent = new Intent(context, ItemScreen.class);
             intent.putExtra(Constants.name, itemsList.get(position).name);
             intent.putExtra(Constants.company, itemsList.get(position).company);
-            intent.putExtra(Constants.photo, itemsList.get(position).photo);
+            intent.putExtra(Constants.photoUrl, itemsList.get(position).photo);
             intent.putExtra(Constants.type, itemsList.get(position).type);
             intent.putExtra(Constants.addInfo, itemsList.get(position).addInfo);
             context.startActivity(intent);

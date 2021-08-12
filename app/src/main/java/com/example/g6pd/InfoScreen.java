@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,24 +28,29 @@ public class InfoScreen extends AppCompatActivity {
     Map<String, Object> mapList = new HashMap<>();
     InfoAdapter infoAdapter;
     Context context = this;
+    ProgressBar infoProg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_info_screen);
+        infoProg = findViewById(R.id.info_prog);
         reference = FirebaseDatabase.getInstance().getReference(Constants.alleries).child(Constants.commonInfo);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 questionInfoList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
-                    String question = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.question).toString();
-                    String answer = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.answer).toString();
-                    String id = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.id).toString();
-                    QuestionInfo q = new QuestionInfo(Integer.parseInt(id), question, answer);
-                    questionInfoList.add(q);
+                if(snapshot.exists()) {
+                    infoProg.setVisibility(View.INVISIBLE);
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
+                        String question = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.question).toString();
+                        String answer = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.answer).toString();
+                        String id = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.id).toString();
+                        QuestionInfo q = new QuestionInfo(Integer.parseInt(id), question, answer);
+                        questionInfoList.add(q);
+                    }
                 }
                 infoAdapter.notifyDataSetChanged();
             }

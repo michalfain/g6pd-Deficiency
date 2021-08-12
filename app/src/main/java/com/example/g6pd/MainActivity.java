@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
@@ -43,16 +44,20 @@ public class MainActivity extends AppCompatActivity {
         AdapterClass listAdapterClass;
         AdapterClass pharmAdapterClass;
         Context context = this;
+        ProgressBar mainProg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle(Constants.itemListTitle);
         setContentView(R.layout.activity_main);
+        mainProg = findViewById(R.id.main_prog);
         reference = FirebaseDatabase.getInstance().getReference(Constants.alleries).child(Constants.g6pd);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 items.clear();
+                if(snapshot.exists()) {
+                    mainProg.setVisibility(View.INVISIBLE);
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         mapList.put(dataSnapshot.getKey(), dataSnapshot.getValue());
                         String name = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.name).toString();
@@ -61,16 +66,8 @@ public class MainActivity extends AppCompatActivity {
                         String type = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.type).toString();
                         String photo = ((Map) (mapList.get(dataSnapshot.getKey()))).get(Constants.photoUrl).toString();
                         items.add(new Items(name, addInfo, company, type, photo));
-
-//                        if(i.type.equals("food")){
-//                            foodList.add(i);
-//                            foodAdapterClass.notifyDataSetChanged();
-//                        }
-//                        else {
-//                            pharmList.add(i);
-//                            pharmAdapterClass.notifyDataSetChanged();
-//                        }
                     }
+                }
                 listAdapterClass.notifyDataSetChanged();
             }
 
@@ -83,14 +80,6 @@ public class MainActivity extends AppCompatActivity {
         listAdapterClass = new AdapterClass(items, context);
         listRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         listRecyclerView.setAdapter(listAdapterClass);
-//        foodRecyclerView = findViewById(R.id.list_food);
-//        foodAdapterClass = new AdapterClass(pharmList, context);
-//        foodRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        foodRecyclerView.setAdapter(foodAdapterClass);
-//        pharmRecyclerView = findViewById(R.id.list_pharm);
-//        pharmAdapterClass = new AdapterClass(pharmList, context);
-//        pharmRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        pharmRecyclerView.setAdapter(pharmAdapterClass);
     }
 
     @Override
