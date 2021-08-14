@@ -14,7 +14,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.appcompat.widget.SearchView;
 
@@ -32,17 +31,11 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
-        RecyclerView foodRecyclerView;
         RecyclerView listRecyclerView;
-        RecyclerView pharmRecyclerView;
         List<Items> items = new ArrayList<Items>();
-        List<Items> foodList = new ArrayList<Items>();
-        List<Items> pharmList = new ArrayList<Items>();
         DatabaseReference reference;
         Map<String, Object> mapList = new HashMap<>();
-        AdapterClass foodAdapterClass;
         AdapterClass listAdapterClass;
-        AdapterClass pharmAdapterClass;
         Context context = this;
         ProgressBar mainProg;
     @Override
@@ -110,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 for (Items object : items) {
                     if (object.name.toLowerCase().contains(query.toLowerCase())) {
                         listItems.add(object);
-//                        pharmRecyclerView.setVisibility(View.INVISIBLE);
                     }
                 }
                 AdapterClass adapter = new AdapterClass(listItems, context);

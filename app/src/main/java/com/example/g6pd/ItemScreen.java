@@ -39,12 +39,5 @@ public class ItemScreen extends AppCompatActivity {
                 context.startActivity(intent);
             }
         });
-
-//        if(intent.getStringExtra(Constants.type) == Constants.food){
-//            ivPhoto.setImageResource(R.drawable.food);
-//        }else {
-//            ivPhoto.setImageResource(R.drawable.pharm);
-//
-//        }
     }
 }

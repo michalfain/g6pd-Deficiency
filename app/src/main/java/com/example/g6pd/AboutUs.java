@@ -25,12 +25,7 @@ public class AboutUs extends AppCompatActivity {
                 sendMail(Constants.racheliEmail);
             }
         });
-        tvRinat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMail(Constants.rinatEmail);
-            }
-        });
+        tvRinat.setOnClickListener(v -> sendMail(Constants.rinatEmail));
         tvPressHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

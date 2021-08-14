@@ -16,6 +16,7 @@ public class ImageScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_image_screen);
         Intent intent = getIntent();
        String photo = intent.getStringExtra(Constants.photoUrl);
