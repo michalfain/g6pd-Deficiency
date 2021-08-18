@@ -31,8 +31,16 @@ public class InfoAdapter  extends RecyclerView.Adapter<InfoAdapter.MyViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        String answer;
+        if(questionInfoList.get(position).answer.contains("*")){
+            answer = questionInfoList.get(position).answer.substring(0 , questionInfoList.get(position).answer.indexOf("*")) + System.getProperty("line.separator") + Constants.addDisclaimer;
+            holder.tvInfoAnswer.setText(answer);
+
+        }else {
+            holder.tvInfoAnswer.setText(questionInfoList.get(position).answer);
+
+        }
         holder.tvInfoQuestion.setText(questionInfoList.get(position).question);
-        holder.tvInfoAnswer.setText(questionInfoList.get(position).answer);
         holder.llAnswer.setVisibility(View.GONE);
         holder.llQuestion.setOnClickListener(v -> {
             if (isPressed == false){

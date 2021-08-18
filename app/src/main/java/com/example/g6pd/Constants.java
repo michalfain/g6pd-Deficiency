@@ -24,6 +24,7 @@ public static String g6pd = "g6pd";
 public static String noPhoto = "none";
 public static String search = "חיפוש";
 public static String commonQA = "commonQA";
+public static String addDisclaimer = "**בכל מקרה של ספק יש לגשת לייעוץ רפואי, אין במידע המוצג לשמש כייעוץ";
 public static String fbLink = "https://www.facebook.com/%D7%9E%D7%98%D7%94-%D7%94%D7%9E%D7%95%D7%93%D7%A2%D7%95%D7%AA-%D7%9C%D7%9E%D7%A1%D7%95%D7%9B%D7%A0%D7%95%D7%AA-%D7%9C%D7%A4%D7%95%D7%9C-110211037924021";
 static final String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+↵\n" +
             ")*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
