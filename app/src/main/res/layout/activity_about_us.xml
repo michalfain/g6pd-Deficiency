@@ -116,6 +116,14 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Illustration by Icons 8 from Ouch!"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:layout_gravity="left"
+        />
 
 
 </LinearLayout>
