@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    android:background="@drawable/bg_beans"
+    android:background="@color/bg"
     tools:context=".AboutUs">
     <TextView
         android:layout_width="wrap_content"

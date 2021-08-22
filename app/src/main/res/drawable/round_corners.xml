@@ -3,7 +3,7 @@
         android:width="2dp"
         android:color="@color/colorPrimaryDark" />
 
-    <solid android:color="@android:color/transparent" />
+    <solid android:color="@android:color/white" />
 
     <corners
         android:radius="20dp" />
